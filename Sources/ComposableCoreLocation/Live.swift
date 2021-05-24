@@ -185,18 +185,6 @@ extension LocationManager {
       .fireAndForget { dependencies[id]?.manager.startMonitoring(for: region.rawValue!) }
     }
     #endif
-		
-    #if os(iOS) || os(macOS) || targetEnvironment(macCatalyst)
-    manager.startMonitoringSignificantLocationChanges = { id in 
-      .fireAndForget { dependencies[id]?.manager.startMonitoringSignificantLocationChanges() }
-    }
-    #endif
-    
-    #if os(iOS) || os(macOS) || targetEnvironment(macCatalyst)
-    manager.stopMonitoringSignificantLocationChanges = { id in
-      .fireAndForget { dependencies[id]?.manager.stopMonitoringSignificantLocationChanges() }
-    }
-    #endif
 
     return manager
   }()
